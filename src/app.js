@@ -6,7 +6,7 @@ const ApiError = require('./api-error');
 const app = express();
 
 app.use(cors());
-app.unsubscribe(express.json());
+app.use(express.json());
 
 app.get('/', (req, res) => {
    res.json({ message: 'Welcome to contact book application.' });
@@ -14,15 +14,15 @@ app.get('/', (req, res) => {
 
 app.route('/api/contacts')
    .get(contactController.findAll)
-   .get(contactController.create)
-   .get(contactController.deleteAll);
+   .post(contactController.create)
+   .delete(contactController.deleteAll);
 
 app.route('/api/contacts/favorite').get(contactController.findAllFavorite);
 
 app.route('/api/contacts/:id')
    .get(contactController.findOne)
-   .get(contactController.update)
-   .get(contactController.delete);
+   .put(contactController.update)
+   .delete(contactController.delete);
 
 //Handle 404 response.
 app.use((req, res, next) => {
