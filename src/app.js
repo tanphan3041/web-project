@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 //Define error-handling middleware last, after other app.use() and routes calls.
-app.use((error, req, res) => {
+app.use((error, req, res, next) => {
    //The centralized error handling middleware.
    //In any route handler, calling next(error)
    //    Will pass to this error handling middleware.
