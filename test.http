@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/books/
+Content-Type: application/json
+
+{
+   "name": "Dan Huong Hinh",
+   "author": "Mac Ngon",
+   "address": "Nha Nam",
+   "favorite": "1"
+}
